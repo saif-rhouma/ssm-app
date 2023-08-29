@@ -1,0 +1,5 @@
+{
+  "ignore": ["playground.js"],
+  "watch": ["src/*"],
+  "ext": "js,json"
+}
