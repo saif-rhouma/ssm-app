@@ -6,5 +6,6 @@
   "quoteProps": "consistent",
   "proseWrap": "preserve",
   "trailingComma": "es5",
-  "printWidth": 120
+  "printWidth": 120,
+  "endOfLine": "auto"
 }
