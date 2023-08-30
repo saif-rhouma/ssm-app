@@ -5,12 +5,14 @@ import helmet from 'helmet';
 import cors from 'cors';
 import logger from 'morgan';
 import Router from './router';
+import path from 'path';
 
 class App {
   constructor() {
     this.app = express();
     // eslint-disable-next-line no-unused-vars
     this.app.use(logger('dev', { skip: (req, res) => environment.nodeEnv === 'test' }));
+    this.app.use(express.static(path.join(__dirname, 'views')));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(helmet());

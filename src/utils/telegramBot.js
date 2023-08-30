@@ -7,10 +7,10 @@ const bot = new TelegramBot(environment.telegramBotToken, {
 
 const AnnaBot = {
   sendMessage: (msg) => {
-    bot.sendMessage(environment.groupChatId, msg);
+    return bot.sendMessage(environment.groupChatId, msg);
   },
   addressMessage: (adress) => {
-    bot.sendMessage(environment.groupChatId, '/n' + adress);
+    return bot.sendMessage(environment.groupChatId, '/n' + adress);
   },
 };
 

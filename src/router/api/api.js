@@ -1,3 +1,6 @@
+const { default: mainController } = require('../../app/controllers/mainController');
+const { default: authMiddleware } = require('../../app/middleware/authMiddleware');
+
 module.exports = {
   group: {
     prefix: '',
@@ -6,17 +9,14 @@ module.exports = {
     {
       method: 'get',
       path: '/',
-      validator: [],
-      handler: async (req, res) => {
-        res.json({ items: [{ roleId: 1236, roleName: 'LeadDev' }] });
-      },
+      middleware: [],
+      handler: mainController.indexPage,
     },
     {
-      method: 'get',
-      path: '/test',
-      handler: (req, res) => {
-        res.json({ items: [{ roleId: 1236, roleName: 'LeadDev' }] });
-      },
+      method: 'post',
+      path: '/',
+      middleware: [authMiddleware],
+      handler: mainController.notifyAdmin,
     },
   ],
 };
