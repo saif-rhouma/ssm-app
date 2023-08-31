@@ -16,7 +16,7 @@ class Router {
 
   _handlePageNotFound() {
     this.router.all('*', async (req, res) => {
-      res.status(404).send('Page Not Found');
+      res.redirect('/');
     });
   }
 
