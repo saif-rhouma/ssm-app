@@ -1,7 +1,11 @@
 import dayjs from 'dayjs';
 import environment from '../config/environment';
-
 class SSMToken {
+  /**
+   * Convert a Word to a number using Unicode values.
+   * @param {string} word 
+   * @returns {number}
+   */
   static letterToNumber(word) {
     const lowercaseLetter = word.toLowerCase().split('');
     let result = 0;
@@ -10,6 +14,11 @@ class SSMToken {
     });
     return parseInt(result);
   }
+
+  /**
+   * Generate Small Token Using SECRET WORD  
+   * @returns {number} 
+   */
   static generateToken() {
     const numberKey = this.letterToNumber(environment.tokenSecret);
     const dateNow = dayjs().format('DMHmmss');
